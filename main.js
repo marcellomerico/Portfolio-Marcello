@@ -1,4 +1,4 @@
-// Navbar scroll effect
+// Navbar-Anpassung beim Scrollen
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 20) {
@@ -8,39 +8,59 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Scroll reveal
+// Alle Navigationslinks und Sektionen einsammeln
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+const sections = document.querySelectorAll('section[id]');
+
+// Scroll-Reveal wieder aktivieren
 const reveals = document.querySelectorAll('.scroll-reveal');
-const revealOnScroll = () => {
+function revealOnScroll() {
   reveals.forEach(el => {
     const rect = el.getBoundingClientRect();
-    const inView = rect.top < window.innerHeight * 0.8 && rect.bottom > 100;
+    const inView = rect.top < window.innerHeight * 0.85 && rect.bottom > 80;
     if (inView) {
       el.classList.add('active');
     } else {
       el.classList.remove('active');
     }
   });
-};
+}
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
-// Highlight active menu item
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('nav a');
+// Klick auf einen Menüpunkt: direkt aktiv setzen, dann scrollen
+navLinks.forEach(link => {
+  link.addEventListener('click', function (e) {
+    const targetId = this.getAttribute('href').slice(1);
+    const targetSection = document.getElementById(targetId);
+    if (!targetSection) return;
 
-const highlightCurrentSection = () => {
-  let index = sections.length;
+    e.preventDefault();
+    // Alle Links zurücksetzen und diesen aktiv setzen
+    navLinks.forEach(l => l.classList.remove('active'));
+    this.classList.add('active');
 
-  while (--index >= 0) {
-    if (window.scrollY + 90 >= sections[index].offsetTop) {
-      navLinks.forEach(link => link.classList.remove('active'));
-      const id = sections[index].getAttribute('id');
-      const activeLink = document.querySelector(`nav a[href="#${id}"]`);
-      if (activeLink) activeLink.classList.add('active');
-      break;
+    // Höhe der Navbar berücksichtigen
+    const navbarHeight = navbar.offsetHeight;
+    const top = targetSection.offsetTop - navbarHeight - 16;
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+});
+
+// Beim Scrollen die aktuell sichtbare Sektion finden und Navigation anpassen
+function highlightOnScroll() {
+  const offset = navbar.offsetHeight + 16;
+  let currentId = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - offset;
+    const sectionBottom = sectionTop + section.offsetHeight;
+    if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+      currentId = section.id;
     }
-  }
-};
-
-window.addEventListener('scroll', highlightCurrentSection);
-window.addEventListener('load', highlightCurrentSection);
+  });
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + currentId);
+  });
+}
+window.addEventListener('scroll', highlightOnScroll);
+window.addEventListener('load', highlightOnScroll);

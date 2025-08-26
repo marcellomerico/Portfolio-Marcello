@@ -36,6 +36,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 10;
+    transition: all 0.4s ease-in-out;
 }
 
 .navbar .container {
@@ -60,17 +61,28 @@ nav a {
     text-decoration: none;
     color: var(--text-dark);
     transition: color 0.3s;
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
 }
 
 nav a:hover {
     color: var(--accent);
 }
 
+nav a.active {
+    background-color: var(--accent);
+    color: var(--text-light);
+    font-weight: bold;
+    transform: scale(1.15);
+}
+
 /* Hero */
 .hero {
     background: linear-gradient(to right, #d7e3ef, #e6ecf0);
     text-align: center;
-    padding: 6rem 2rem;
+    padding: 10rem 2rem;
     animation: fadeIn 1s ease-in;
 }
 
@@ -128,6 +140,10 @@ nav a:hover {
 /* Sektionen */
 section {
     padding: 5rem 2rem;
+}
+
+section[id] {
+  scroll-margin-top: 70px;
 }
 
 .animated-section {
@@ -233,28 +249,29 @@ footer {
 
 .scroll-reveal {
   opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.6s ease;
+  transform: scale(0.85);
+  transition: all 0.5s ease;
   filter: blur(3px);
-  pointer-events: none;
 }
 
 .scroll-reveal.active {
   opacity: 1;
   transform: scale(1);
   filter: blur(0);
-  pointer-events: auto;
   z-index: 1;
 }
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px) scale(0.98);
-  transition: all 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px) scale(0.96);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-nav a.active {
-  color: var(--accent);
-  font-weight: bold;
+.centered-section {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  transition: all 0.5s ease-in-out;
 }
