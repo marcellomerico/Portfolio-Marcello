@@ -65,3 +65,28 @@ function highlightOnScroll() {
 window.addEventListener('scroll', highlightOnScroll);
 window.addEventListener('load', highlightOnScroll);
 
+// Lightbox Funktionalität
+const lightboxLinks = document.querySelectorAll('.lightbox-link');
+if (lightboxLinks.length) {
+  const overlay = document.createElement('div');
+  overlay.classList.add('lightbox-overlay');
+  overlay.innerHTML = '<img src="" alt="Projektbild">';
+  document.body.appendChild(overlay);
+  const overlayImage = overlay.querySelector('img');
+
+  lightboxLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const src = link.getAttribute('href') || link.querySelector('img')?.src;
+      if (!src) return;
+      overlayImage.src = src;
+      overlay.classList.add('active');
+    });
+  });
+
+  // Schließen per Klick auf Overlay oder ESC
+  overlay.addEventListener('click', () => overlay.classList.remove('active'));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') overlay.classList.remove('active');
+  });
+}
