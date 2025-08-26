@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marcello Antonio Merico</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -24,13 +24,19 @@
     </header>
 
     <section class="hero">
-        <div class="container">
-            <h2>Willkommen auf meinem Portfolio</h2>
-            <p>Ich bin Marcello Antonio Merico, angehender Fachinformatiker mit Fokus auf moderne App- und
-                Webentwicklung.</p>
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h2>Hi, ich bin Marcello</h2>
+                <p class="subtitle">iOS-Entwickler mit Leidenschaft für klare Designs und sauberen Code</p>
+                <a href="#projects" class="btn">Meine Projekte ansehen</a>
+            </div>
+            <div class="hero-image">
+                <img src="assets/images/profile.jpg" alt="Profilfoto von Marcello Antonio Merico">
+            </div>
+        </div>
     </section>
 
-    <section id="about" class="about">
+    <section id="about" class="about scroll-reveal">
         <div class="container">
             <h2>Über mich</h2>
             <p>Ich bin ein leidenschaftlicher Entwickler mit einem starken Interesse an neuen Technologien und
@@ -38,7 +44,7 @@
         </div>
     </section>
 
-    <section id="skills" class="skills">
+    <section id="skills" class="skills scroll-reveal">
         <div class="container">
             <h2>Skills</h2>
             <ul>
@@ -53,27 +59,32 @@
         </div>
     </section>
 
-    <section id="projects" class="projects">
+    <section id="projects" class="projects scroll-reveal">
         <div class="container">
             <h2>Meine Projekte</h2>
             <div class="project-grid">
                 <div class="project-card">
+                    <img src="assets/images/trackmygym.jpg" alt="Screenshot von Track My Gym" />
                     <h3>Track My Gym</h3>
                     <p>Mein erstes iOS Projekt mit Swift. </p>
                 </div>
                 <div class="project-card">
+                    <img src="assets/images/TikTakGo.jpg" alt="Screenshot von TikTakGo" />
                     <h3>TikTakGo</h3>
                     <p>Mein Zweites kleines Projekt zur Zeiterfassung der Arbeitszeiten meiner Freundin in der Kita</p>
                 </div>
                 <div class="project-card">
+                    <img src="assets/images/RideFuel.jpg" alt="Screenshot von RideFuel" />
                     <h3>RideFuel</h3>
                     <p>Mein Drittes Projekt mit Swift.</p>
                 </div>
                 <div class="project-card">
+                    <img src="assets/images/FlappyKaktus.jpg" alt="Screenshot von Flappy Kaktus" />
                     <h3>Flappy Kaktus</h3>
                     <p>Mein erstes Spiel Projekt mit HTML, CSS, JavaScript und PHP</p>
                 </div>
                 <div class="project-card">
+                    <img src="assets/images/familytodo.jpg" alt="Screenshot von Familien To-Do" />
                     <h3>Familien To-Do</h3>
                     <p>Ein gemeinsames Schulprojekt in dem wir mit Scrum arbeiten sollten, ich habe das Backend gemacht
                     </p>
@@ -82,7 +93,7 @@
         </div>
     </section>
 
-    <seaction id="contact" class="contact">
+    <section id="contact" class="contact scroll-reveal">
         <div class="container">
             <h2>Kontakt</h2>
             <p>Ich freue mich über Ihre Nachricht! Sie können mich per E-Mail unter
@@ -91,7 +102,7 @@
                 oder <a href="https://github.com/marcellomerico">GitHub</a> Profil erreichen.
             </p>
         </div>
-    </seaction>     
+    </section>
 
     <footer class="footer">
         <div class="container">
@@ -99,6 +110,7 @@
         </div>
     </footer>
 
+<script src="main.js"></script>
 </body>
 
 </html>
