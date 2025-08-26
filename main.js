@@ -64,3 +64,4 @@ function highlightOnScroll() {
 }
 window.addEventListener('scroll', highlightOnScroll);
 window.addEventListener('load', highlightOnScroll);
+

@@ -4,7 +4,7 @@
     --accent: #3a6ea5;
     --text-dark: #1f1f1f;
     --text-light: #ffffff;
-    --card-bg: #f9fbfc;
+    --card-bg: #c1dfff;
     --shadow: rgba(0, 0, 0, 0.05);
 }
 
@@ -80,7 +80,7 @@ nav a.active {
 
 /* Hero */
 .hero {
-    background: linear-gradient(to right, #d7e3ef, #e6ecf0);
+    background: linear-gradient(to right, #95c8ff, #e6ecf0);
     text-align: center;
     padding: 10rem 2rem;
     animation: fadeIn 1s ease-in;
@@ -130,7 +130,7 @@ nav a.active {
 }
 
 .hero-image img {
-    max-width: 250px;
+    max-width: 450px;
     width: 100%;
     border-radius: 50%;
     box-shadow: 0 4px 10px var(--shadow);
@@ -224,7 +224,7 @@ section:nth-of-type(even) {
 /* Footer */
 footer {
     text-align: center;
-    padding: 2rem;
+    padding: 5rem;
     background: var(--card-bg);
     font-size: 0.9rem;
 }
@@ -274,4 +274,93 @@ footer {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   z-index: 2;
   transition: all 0.5s ease-in-out;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;   
+  justify-content: center; 
+  margin-top: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-3px); 
+  color: var(--accent);
+}
+
+.contact-item img {
+  width: 28px;
+  height: 28px;
+}
+
+.cert-icon {
+  width: 300px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+.lightbox-link {
+  position: relative;
+  display: inline-block;
+  cursor: zoom-in;
+}
+
+.lightbox-link img {
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.lightbox-link:hover img {
+  transform: scale(1.02);
+}
+
+.zoom-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 0.3rem 0.5rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox-link:hover .zoom-icon {
+  opacity: 1;
+}
+
+.project-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin: 0.75rem 0 1rem;
+}
+
+.project-thumbs img {
+  width: 60px; /* kleine Thumbs */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+@media (max-width: 600px) {
+  .project-thumbs img { width: 32%; }
 }
